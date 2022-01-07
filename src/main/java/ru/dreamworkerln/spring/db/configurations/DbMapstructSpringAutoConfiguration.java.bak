@@ -1,0 +1,31 @@
+package ru.dreamworkerln.spring.db.configurations;
+
+import com.cosium.spring.data.jpa.entity.graph.repository.support.EntityGraphJpaRepositoryFactoryBean;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import ru.dreamworkerln.spring.db.repositories.RepositoryWithEntityManager;
+
+import javax.annotation.PostConstruct;
+
+import static ru.dreamworkerln.spring.db.configurations.CommonConfigurations.PROJECT_PACKAGE_NAME;
+
+
+/**
+ * Enable support of Cosium custom entity graph jpa repositories,
+ */
+@Configuration
+@ComponentScan(basePackages = PROJECT_PACKAGE_NAME)
+@EnableJpaRepositories(
+    basePackages = PROJECT_PACKAGE_NAME,
+    repositoryBaseClass = RepositoryWithEntityManager.class,
+    repositoryFactoryBeanClass = EntityGraphJpaRepositoryFactoryBean.class)
+@EntityScan(basePackages = {PROJECT_PACKAGE_NAME})
+public class DbMapstructSpringAutoConfiguration {
+
+    @PostConstruct
+    private void init() {
+        System.out.println("Cmoon!");
+    }
+}

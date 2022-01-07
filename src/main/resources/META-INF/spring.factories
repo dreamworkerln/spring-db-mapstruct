@@ -1,0 +1,2 @@
+#org.springframework.context.ApplicationListener=ru.kvanttelecom.tv.alertmanager.configserver.configurations.PreparedEventsListener,ru.kvanttelecom.tv.alertmanager.configserver.configurations.ApplicationAllEventsListener
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=ru.dreamworkerln.spring.db.configurations.DbMapstructSpringAutoConfiguration
