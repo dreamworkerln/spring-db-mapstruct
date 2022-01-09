@@ -76,4 +76,9 @@ public abstract class BaseRepoAccessService<T> {
         baseRepository.delete(t);
     }
 
+    public void deleteAllById(Iterable<Long> ids) {
+        baseRepository.deleteAllById(ids);
+    }
+
+
 }
