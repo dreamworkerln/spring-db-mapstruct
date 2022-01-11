@@ -74,9 +74,9 @@ public abstract class AbstractMapper<E extends AbstractEntity, D extends Abstrac
 //    @Mapping(target = "updated", ignore = true)
     public abstract D toDto(E entity);
 
-    public abstract List<D> toDtoList(List<E> entityList);
+    public abstract List<D> toDtoList(Iterable<E> entityList);
 
-    public abstract List<E> toEntityList(List<D> dtoList);
+    public abstract List<E> toEntityList(Iterable<D> dtoList);
 
 
 

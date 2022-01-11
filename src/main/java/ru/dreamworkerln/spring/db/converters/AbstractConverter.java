@@ -24,6 +24,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -274,6 +275,10 @@ public abstract class AbstractConverter<E extends AbstractEntity, D extends Abst
         }
     }
 
+    public List<E> toEntityList(Iterable<D> dtoList)  {
+        return entityMapper.toEntityList(dtoList);
+    }
+
 
     // Entity => Dto => Json
     public JsonNode toDtoJson(E entity) {
@@ -298,7 +303,7 @@ public abstract class AbstractConverter<E extends AbstractEntity, D extends Abst
 
 
     // EntityList => Dto => Json
-    public JsonNode toDtoListJson(List<E> entityList) {
+    public JsonNode toDtoListJson(Iterable<E> entityList) {
         try {
             List<D> dtoList = entityMapper.toDtoList(entityList);
             return objectMapper.valueToTree(dtoList);
@@ -309,8 +314,21 @@ public abstract class AbstractConverter<E extends AbstractEntity, D extends Abst
     }
 
     // EntityList => Dto
-    public List<D> toDtoList(List<E> entityList) {
+    public List<D> toDtoList(Iterable<E> entityList) {
         return entityMapper.toDtoList(entityList);
+    }
+
+    // ----------------------------------------------------------------------
+
+
+    // Entity => Dto
+    public Optional<D> toDto(Optional<E> entityOp) {
+        Optional<D> result = Optional.empty();
+
+        if (entityOp.isPresent()) {
+            result = Optional.of(toDto(entityOp.get()));
+        }
+        return result;
     }
 
 
