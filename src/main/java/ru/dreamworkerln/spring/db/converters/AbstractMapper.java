@@ -18,8 +18,9 @@ public abstract class AbstractMapper<E extends AbstractEntity, D extends Abstrac
 
     protected BaseRepoAccessService<E> baseRepoAccessService;
 
-//    protected AbstractMapper(BaseRepoAccessService<E> baseRepoAccessService) {
-//        this.baseRepoAccessService = baseRepoAccessService;
+//    private final EntityFindById<E> findById;
+//    protected AbstractMapper(EntityFindById<E> findById) {
+//        this.findById = findById;
 //    }
 
 //    protected Constructor<E,D> constructor;

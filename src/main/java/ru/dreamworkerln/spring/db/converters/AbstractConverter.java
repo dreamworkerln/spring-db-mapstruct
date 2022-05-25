@@ -47,7 +47,7 @@ public abstract class AbstractConverter<E extends AbstractEntity, D extends Abst
         Class<?> clazz = this.getClass();
         ParameterizedType p = (ParameterizedType) clazz.getGenericSuperclass();
         Type[] genParams = p.getActualTypeArguments();
-        System.out.println(Arrays.toString(genParams));
+        //System.out.println(Arrays.toString(genParams));
 
         Assert.isTrue(genParams.length == 3, "AbstractConverter generic params count != 3");
         entityClass = (Class<E>) genParams[0];

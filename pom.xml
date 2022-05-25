@@ -26,7 +26,6 @@
         <spring-cloud.version>2021.0.0</spring-cloud.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <com.cosium.spring.data.version>2.5.0</com.cosium.spring.data.version>
-        <com.hazelcast.version>4.2.4</com.hazelcast.version>
         <org.ehcache.version>3.9.9</org.ehcache.version>
         <org.hibernate.hibernate-jcache.version>5.6.3.Final</org.hibernate.hibernate-jcache.version>
     </properties>
